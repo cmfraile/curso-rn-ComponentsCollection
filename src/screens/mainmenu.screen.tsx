@@ -11,8 +11,8 @@ const ionicons:string[] = shuffle(['logo-css3','analytics','aperture','apps','ar
 interface menuItemWithoutIcon {name:string,toComponent:keyof rootStack}
 interface menuItem extends menuItemWithoutIcon {icon:string}
 const menuItems:menuItemWithoutIcon[] = [
-    {name:'Lorem Ipsum',toComponent:'Detail'},
-    {name:'101',toComponent:'Detail'},
+    {name:'Lorem Ipsum',toComponent:'Animation1'},
+    {name:'101',toComponent:'Animation2'},
 ]
 
 const OptionRender = ({icon,name,toComponent}:menuItem) => {
@@ -20,10 +20,10 @@ const OptionRender = ({icon,name,toComponent}:menuItem) => {
     const { navigate } = useNavigation<NativeStackNavigationProp<rootStack>>() ;
 
     return(
-    <TouchableOpacity style={optionRender} onPress={() => navigate(toComponent)}>
-        <Icon name={icon} size={30}/>
-        <Text style={optionText}>{name}</Text>
-    </TouchableOpacity>
+        <TouchableOpacity style={optionRender} onPress={() => navigate(toComponent)}>
+            <Icon name={icon} size={30}/>
+            <Text style={optionText}>{name}</Text>
+        </TouchableOpacity>
     )
 }
 
