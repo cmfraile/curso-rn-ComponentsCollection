@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import { Animated, Button, Dimensions, StyleSheet, Text , TouchableOpacity, View } from "react-native"
-import { SafeAreaView } from "react-native-safe-area-context";
 import { Easing } from "react-native";
 
 const { width } = Dimensions.get('window')

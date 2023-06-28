@@ -6,13 +6,13 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { rootStack } from "../routes/Main";
 import { shuffle } from 'underscore';
 
-const ionicons:string[] = shuffle(['logo-css3','analytics','aperture','apps','archive','attach','balloon','chatbubble-ellipses','cloud-circle'])
+const ionicons:string[] = shuffle(['american-football-outline','american-football-outline','american-football-outline'])
 
 interface menuItemWithoutIcon {name:string,toComponent:keyof rootStack}
 interface menuItem extends menuItemWithoutIcon {icon:string}
 const menuItems:menuItemWithoutIcon[] = [
-    {name:'Lorem Ipsum',toComponent:'Animation1'},
-    {name:'101',toComponent:'Animation2'},
+    {name:'Animacion 1',toComponent:'Animation1'},
+    {name:'Animacion 2',toComponent:'Animation2'},
 ]
 
 const OptionRender = ({icon,name,toComponent}:menuItem) => {
