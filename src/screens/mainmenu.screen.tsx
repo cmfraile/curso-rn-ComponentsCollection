@@ -1,16 +1,18 @@
 import { FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Icon from 'react-native-vector-icons/Ionicons';
-import First from "./detailScreens/101.screen";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { rootStack } from "../routes/Main";
+import { shuffle } from 'underscore';
 
+const ionicons:string[] = shuffle(['logo-css3','analytics','aperture','apps','archive','attach','balloon','chatbubble-ellipses','cloud-circle'])
 
-interface menuItem {icon:string,name:string,toComponent?:() => JSX.Element}
-const menuItems:menuItem[] = [
-    {icon:"logo-css3",name:'Lorem Ipsum',toComponent:First},
-    {icon:"alert-circle",name:'101',toComponent:First},
+interface menuItemWithoutIcon {name:string,toComponent:keyof rootStack}
+interface menuItem extends menuItemWithoutIcon {icon:string}
+const menuItems:menuItemWithoutIcon[] = [
+    {name:'Lorem Ipsum',toComponent:'Detail'},
+    {name:'101',toComponent:'Detail'},
 ]
 
 const OptionRender = ({icon,name,toComponent}:menuItem) => {
@@ -18,7 +20,7 @@ const OptionRender = ({icon,name,toComponent}:menuItem) => {
     const { navigate } = useNavigation<NativeStackNavigationProp<rootStack>>() ;
 
     return(
-    <TouchableOpacity style={optionRender} onPress={() => navigate('Detail')}>
+    <TouchableOpacity style={optionRender} onPress={() => navigate(toComponent)}>
         <Icon name={icon} size={30}/>
         <Text style={optionText}>{name}</Text>
     </TouchableOpacity>
@@ -33,7 +35,7 @@ const MainMenu = () => {
             <FlatList
                 style={list}
                 data={menuItems}
-                renderItem={({item}) => <OptionRender icon={item.icon} name={item.name}/>}
+                renderItem={({item,index}) => <OptionRender icon={ionicons[index]} name={item.name} toComponent={item.toComponent}/>}
                 keyExtractor={(item,index) => index.toString()}
                 ItemSeparatorComponent={() => <View style={{borderBottomWidth:2,opacity:0.2}}></View>}
             />
