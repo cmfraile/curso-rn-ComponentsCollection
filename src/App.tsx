@@ -1,11 +1,5 @@
 import Main from "./routes/Main"
 
-const App = () => {
-
-  return(
-    <Main/>
-  )
-
-}
+const App = () => <Main/>
 
 export default App
