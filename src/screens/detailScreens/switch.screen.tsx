@@ -6,7 +6,7 @@ import { useState } from "react";
 type initialType = {hungry:boolean,horny:boolean,angry:boolean};
 const initialState:initialType = { hungry:false , horny:false , angry:false }
 
-interface switchProps { state:initialType , stateKey:keyof initialType ,onChange:(initial:keyof initialType) => void }
+interface switchProps { state:initialType , stateKey:keyof initialType ,onChange:() => void }
 const SwitchComponent = ({state,stateKey,onChange}:switchProps) => {
 
     const isOn = state[stateKey];
@@ -17,7 +17,7 @@ const SwitchComponent = ({state,stateKey,onChange}:switchProps) => {
             trackColor={{false: '#767577', true: '#81b0ff'}}
             thumbColor={isOn ? '#f5dd4b' : '#f4f3f4'}
             ios_backgroundColor="#3e3e3e"
-            onChange={() => onChange(stateKey)}
+            onChange={onChange}
             value={isOn}
         />
     )
@@ -28,20 +28,14 @@ const SwitchCollection = () => {
 
     const [ state , setState ] = useState(initialState)
 
-    const [ isEnabled , setIsEnabled ] = useState(false);
+    const onChange = (initial:keyof initialType) => setState(v => ({...v,[initial]:!v[initial]}))
 
     return(
         <SafeAreaView style={styles.container}>
-
-            <Switch
-                style={styles.switch}
-                trackColor={{false: '#767577', true: '#81b0ff'}}
-                thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
-                ios_backgroundColor="#3e3e3e"
-                onValueChange={ () => setIsEnabled(v => !v) }
-                value={isEnabled}
-            />
-
+            <Text>{JSON.stringify(state)}</Text>
+            <SwitchComponent state={state} stateKey='angry' onChange={() => onChange('angry')} />
+            <SwitchComponent state={state} stateKey='horny' onChange={() => onChange('horny')} />
+            <SwitchComponent state={state} stateKey='hungry' onChange={() => onChange('hungry')} />
         </SafeAreaView>
     )
 
