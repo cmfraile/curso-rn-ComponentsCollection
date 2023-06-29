@@ -7,7 +7,7 @@ type initialType = {hungry:boolean,horny:boolean,angry:boolean};
 const initialState:initialType = { hungry:false , horny:false , angry:false }
 
 interface switchProps { state:initialType , stateKey:keyof initialType ,onChange:() => void }
-const SwitchComponent = ({state,stateKey,onChange}:switchProps) => {
+export const SwitchComponent = ({state,stateKey,onChange}:switchProps) => {
 
     const isOn = state[stateKey];
 

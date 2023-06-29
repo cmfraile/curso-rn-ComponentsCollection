@@ -6,7 +6,6 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { rootStack } from "../routes/Main";
 import { menuItem , menuItems } from "../routes/Main";
 
-
 const OptionRender = ({icon,name,toComponent}:menuItem) => {
 
     const { navigate } = useNavigation<NativeStackNavigationProp<rootStack>>() ;
