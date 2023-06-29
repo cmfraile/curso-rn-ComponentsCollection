@@ -7,8 +7,9 @@ import SwitchCollection from '../screens/detailScreens/switch.screen';
 import AlertComponent from '../screens/detailScreens/alert.screen';
 import TextInputComponent from '../screens/detailScreens/textInput.screen';
 import BurningBattery from '../screens/detailScreens/burning.screen';
+import PullToRefreshComponent from '../screens/detailScreens/pullToRefresh.screen';
 
-export type rootStack = { MainMenu:undefined , Animation1:undefined , Animation2:undefined , SwitchCollection:undefined , Alert:undefined , TextInput:undefined , BurningBattery:undefined } ;
+export type rootStack = { MainMenu:undefined , Animation1:undefined , Animation2:undefined , SwitchCollection:undefined , Alert:undefined , TextInput:undefined , BurningBattery:undefined , pullToRefresh:undefined } ;
 
 export interface menuItemWithoutIcon {name:string,toComponent:keyof rootStack}
 export interface menuItem extends menuItemWithoutIcon {icon:string}
@@ -18,6 +19,7 @@ export const menuItems:menuItemWithoutIcon[] = [
     {name:'Switches',toComponent:'SwitchCollection'},
     {name:'Alert',toComponent:'Alert'},
     {name:'TextInput',toComponent:'TextInput'},
+    {name:'pullToRefresh',toComponent:'pullToRefresh'},
     {name:'BurningBattery',toComponent:'BurningBattery'},
 ]
 
@@ -37,6 +39,7 @@ const Main = () => {
                 <Stack.Screen name='SwitchCollection' component={SwitchCollection}/>
                 <Stack.Screen name='Alert' component={AlertComponent}/>
                 <Stack.Screen name='TextInput' component={TextInputComponent}/>
+                <Stack.Screen name='pullToRefresh' component={PullToRefreshComponent}/>
                 <Stack.Screen name='BurningBattery' component={BurningBattery}/>
             </Stack.Navigator>
         </NavigationContainer>
