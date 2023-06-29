@@ -4,16 +4,8 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { rootStack } from "../routes/Main";
-import { shuffle } from 'underscore';
+import { menuItem , menuItems , ionicons } from "../routes/Main";
 
-const ionicons:string[] = shuffle(['american-football-outline','american-football-outline','american-football-outline'])
-
-interface menuItemWithoutIcon {name:string,toComponent:keyof rootStack}
-interface menuItem extends menuItemWithoutIcon {icon:string}
-const menuItems:menuItemWithoutIcon[] = [
-    {name:'Animacion 1',toComponent:'Animation1'},
-    {name:'Animacion 2',toComponent:'Animation2'},
-]
 
 const OptionRender = ({icon,name,toComponent}:menuItem) => {
 

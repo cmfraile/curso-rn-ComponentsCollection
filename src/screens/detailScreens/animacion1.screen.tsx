@@ -1,5 +1,5 @@
-import { useEffect, useRef } from "react";
-import { Animated, Button, Dimensions, StyleSheet, Text , TouchableOpacity, View } from "react-native"
+import { useRef } from "react";
+import { Animated , Dimensions, StyleSheet, Text , TouchableOpacity } from "react-native"
 import { Easing } from "react-native";
 
 const { width } = Dimensions.get('window')
