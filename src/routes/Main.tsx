@@ -8,8 +8,6 @@ import { shuffle } from 'underscore';
 
 export type rootStack = { MainMenu:undefined , Animation1:undefined , Animation2:undefined , SwitchCollection:undefined } ;
 
-export const ionicons:string[] = shuffle(['american-football-outline','american-football-outline','american-football-outline'])
-
 export interface menuItemWithoutIcon {name:string,toComponent:keyof rootStack}
 export interface menuItem extends menuItemWithoutIcon {icon:string}
 export const menuItems:menuItemWithoutIcon[] = [

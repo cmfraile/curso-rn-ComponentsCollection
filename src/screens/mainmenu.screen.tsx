@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { rootStack } from "../routes/Main";
-import { menuItem , menuItems , ionicons } from "../routes/Main";
+import { menuItem , menuItems } from "../routes/Main";
 
 
 const OptionRender = ({icon,name,toComponent}:menuItem) => {
@@ -27,7 +27,7 @@ const MainMenu = () => {
             <FlatList
                 style={list}
                 data={menuItems}
-                renderItem={({item,index}) => <OptionRender icon={ionicons[index]} name={item.name} toComponent={item.toComponent}/>}
+                renderItem={({item,index}) => <OptionRender icon={'american-football-outline'} name={item.name} toComponent={item.toComponent}/>}
                 keyExtractor={(item,index) => index.toString()}
                 ItemSeparatorComponent={() => <View style={{borderBottomWidth:2,opacity:0.2}}></View>}
             />
