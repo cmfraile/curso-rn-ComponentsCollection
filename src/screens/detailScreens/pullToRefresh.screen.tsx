@@ -1,8 +1,10 @@
-import { RefreshControl, ScrollView } from "react-native";
+import { Dimensions, RefreshControl, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useCallback, useEffect, useState } from "react";
-import { Text } from "react-native";
+import { Image , View , Text } from "react-native";
 import digiHook from "../../hooks/digiHook";
+
+const { width , height } = Dimensions.get('window')
 
 const PullToRefreshComponent = () => {
 
@@ -20,7 +22,11 @@ const PullToRefreshComponent = () => {
             <ScrollView
                 refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh}/>}
             >
-                <Text style={{fontSize:30,padding:20}}>{JSON.stringify(getDigimon())}</Text>
+                <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
+                    <Image style={{flex:1,width,height:width,padding:10}} source={{uri:getDigimon().image}}/>
+                    <Text style={{fontSize:40,marginVertical:20}}>{getDigimon().name}</Text>
+                </View>
+                
             </ScrollView>
         </SafeAreaView>
     )
