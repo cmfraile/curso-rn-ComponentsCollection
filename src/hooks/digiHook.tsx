@@ -22,9 +22,7 @@ const digiHook = () => {
         .catch(console.log);
     },[])
 
-    
-
-    return ({getDigimon,roll})
+    return ({digimons,getDigimon,roll})
 
 }
 
