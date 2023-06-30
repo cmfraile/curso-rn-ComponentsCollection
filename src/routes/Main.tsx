@@ -10,8 +10,9 @@ import BurningBattery from '../screens/detailScreens/burning.screen';
 import PullToRefreshComponent from '../screens/detailScreens/pullToRefresh.screen';
 import SectionListComponent from '../screens/detailScreens/section.screen';
 import ModalComponent from '../screens/detailScreens/modal.screen';
+import InfiniteScrollComponent from '../screens/detailScreens/infinitescroll.screen';
 
-export type rootStack = { MainMenu:undefined , Animation1:undefined , Animation2:undefined , SwitchCollection:undefined , Alert:undefined , TextInput:undefined , BurningBattery:undefined , pullToRefresh:undefined , SectionList:undefined , Modal:undefined } ;
+export type rootStack = { MainMenu:undefined , Animation1:undefined , Animation2:undefined , SwitchCollection:undefined , Alert:undefined , TextInput:undefined , BurningBattery:undefined , pullToRefresh:undefined , SectionList:undefined , Modal:undefined , InfiniteScroll:undefined } ;
 
 export interface menuItemWithoutIcon {name:string,toComponent:keyof rootStack}
 export interface menuItem extends menuItemWithoutIcon {icon:string}
@@ -24,6 +25,7 @@ export const menuItems:menuItemWithoutIcon[] = [
     {name:'pullToRefresh',toComponent:'pullToRefresh'},
     {name:'SectionList',toComponent:'SectionList'},
     {name:'Modal',toComponent:'Modal'},
+    {name:'InfiniteScroll',toComponent:'InfiniteScroll'},
     {name:'BurningBattery',toComponent:'BurningBattery'},
 ]
 
@@ -47,6 +49,7 @@ const Main = () => {
                 <Stack.Screen name='BurningBattery' component={BurningBattery}/>
                 <Stack.Screen name='SectionList' component={SectionListComponent}/>
                 <Stack.Screen name='Modal' component={ModalComponent}/>
+                <Stack.Screen name='InfiniteScroll' component={InfiniteScrollComponent}/>
             </Stack.Navigator>
         </NavigationContainer>
     )
