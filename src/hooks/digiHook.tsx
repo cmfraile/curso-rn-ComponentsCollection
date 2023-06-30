@@ -11,7 +11,7 @@ const digiHook = () => {
 
     const roll = () => setPointer(v => random(0,amount));
 
-    const getDigimon = () => digimons[pointer]
+    const getDigimon = () => digimons[pointer];
 
     useEffect(() => {
         fetchComponent<TopLevel>({
